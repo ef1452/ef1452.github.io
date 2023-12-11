@@ -1,4 +1,13 @@
-body {
-    font-family: 'Metal', serif;
+.maintitle{
+    font-family:'Karla', sans-serif;
     font-size: 48px;
   }
+  
+.temptime{
+      font-family: 'Metal', serif;
+      font-size: 24px;
+    }
+.mainbody{
+    font-family: 'Metal', serif;
+    font-size: 48px;
+}
