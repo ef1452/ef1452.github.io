@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Karla&family=Metal&display=swap" rel="stylesheet">
   <script defer src="scripts/get_weather.js"></script>
+  <script defer src="scripts/pick_color.js"></script>
   <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
 
   <title>EFUENTES</title>
@@ -24,9 +25,8 @@
       <p>Current Weather: <span id="temperature-display">Loading...</span></p>
     </div>
   </div>
-  <div id="color-demo" class="smooth" style="color:red;">
+  <div id="color-demo" class="smooth" hx-get="scripts/pick_color.js" style="color:red;" hx-trigger="every 1s" hx-swap="innerHTML">
     Color Swap Demo
-    <p>I made this</p>
   </div>
   <div class="iAm">
   <div class="maintitle">
