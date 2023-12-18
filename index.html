@@ -25,16 +25,17 @@
       <p>Current Weather: <span id="temperature-display">Loading...</span></p>
     </div>
   </div>
-  <div id="color-demo" class="smooth" hx-get="scripts/pick_color.js" style="color:red;" hx-trigger="every 1s" hx-swap="innerHTML">
-    Color Swap Demo
+  <div id="color-demo" class="smooth" style="color:red" hx-get="/colors" hx-swap="outerHTML" hx-trigger="every 1s">
+    I made this
   </div>
   <div class="iAm">
   <div class="maintitle">
     <h1>I am: </h1>
   </div>
   <div class="mainbody">
+    <div class = "currentRead">
     <p>Currently reading: Linear and NonLinear Programming </p>
-    <p></p>
+  </div>
   </div>
   <div class="doYou">
     <div class="maintitle">
