@@ -1,13 +1,54 @@
-.maintitle{
-    font-family:'Karla', sans-serif;
-    font-size: 48px;
+.smooth {
+    transition: all 1s ease-in;
   }
   
-.temptime{
-      font-family: 'Metal', serif;
-      font-size: 24px;
-    }
-.mainbody{
-    font-family: 'Metal', serif;
+.based{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.based .maintitle{
+    font-family:'Karla', sans-serif;
     font-size: 48px;
+    margin-bottom: 0px;
+  }
+
+.based .maintitle h1{
+    margin: 0;
+}
+.based .temptime p{
+    font-family: 'Metal', serif;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+
+.iAm {
+    margin-bottom: 0;
+}  
+.iAm .maintitle {
+    font-family:'Karla', sans-serif;
+    font-size: 48px;
+    margin-bottom: 0px;
+}
+
+.iAm .mainbody p{
+    margin-bottom: 0;
+
+    font-family: 'Metal', serif;
+    font-size: 24px;
+}
+
+.doYou .maintitle {
+    font-family:'Karla', sans-serif;
+    font-size: 48px;
+    margin-bottom: 0px;
+}
+
+.doYou .mainbody p{
+    margin-bottom: 0;
+
+    font-family: 'Metal', serif;
+    font-size: 24px;
+
 }

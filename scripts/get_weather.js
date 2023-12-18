@@ -13,11 +13,14 @@ fetch(apiUrl)
   })
   .then(data => {
     // Extract relevant information (example: temperature)
+    const textDescription = data.properties.textDescription;
     const temperature = data.properties.temperature.value;
 
     // Update the temperature in the HTML
+    const textDescriptionDisplay = document.getElementById("textDescription-display");
     const temperatureDisplay = document.getElementById("temperature-display");
-    temperatureDisplay.textContent = `${temperature} degrees Celsius`;
+
+    temperatureDisplay.textContent = `${textDescription}, ${temperature} degrees Celsius`;
   })
   .catch(error => {
     // Handle any errors that occurred during the fetch

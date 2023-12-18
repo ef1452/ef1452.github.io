@@ -10,20 +10,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Karla&family=Metal&display=swap" rel="stylesheet">
   <script defer src="scripts/get_weather.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+
   <title>EFUENTES</title>
 </head>
 
 <body>
-  <div class="maintitle">
-    <h1>Based in New York</h1>
+  <div class="based">
+    <div class="maintitle">
+      <h1>Based in New York</h1>
+    </div>
+    <div class="temptime">
+      <p>Current Weather: <span id="temperature-display">Loading...</span></p>
+    </div>
   </div>
-  <div class="temptime">
-    <p>Current Weather: <span id="temperature-display">Loading...</span></p>
-  </div>
-  <div class="mainbody">
+  <div id="color-demo" class="smooth" style="color:red;">
+    Color Swap Demo
     <p>I made this</p>
   </div>
+  <div class="iAm">
+  <div class="maintitle">
+    <h1>I am: </h1>
+  </div>
+  <div class="mainbody">
+    <p>Currently reading: Linear and NonLinear Programming </p>
+    <p></p>
+  </div>
+  <div class="doYou">
+    <div class="maintitle">
+      <h1>Do You:</h1>
+    </div>
+    <div class="mainbody">
+      <p>Want to leave a message? </p>
+    </div>
+  </div>
+</div>
 </body>
+
 
 </html>
 
