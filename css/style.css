@@ -55,6 +55,17 @@ svg {
     margin-top: 0;
     margin-bottom:0;
 }
+
+.iAm .image-container{
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.iAM .image-description{
+    font-size: 14px;
+    color: #555;
+}
 .doYou .maintitle {
     font-family:'Karla', sans-serif;
     font-size: 48px;
@@ -68,3 +79,10 @@ svg {
     font-size: 24px;
 
 }
+
+.footer-content {
+    font-family: 'Metal', serif;
+    font-size: 24px;
+
+}
+
