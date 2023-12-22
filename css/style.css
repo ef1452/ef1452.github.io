@@ -40,7 +40,7 @@ svg {
 .iAm .maintitle {
     font-family:'Karla', sans-serif;
     font-size: 48px;
-    margin-bottom: 0px;
+    margin: 0px;
     padding: 0;
 }
 
@@ -54,10 +54,11 @@ svg {
 .iAm .currentRead {
     margin-top: 0;
     margin-bottom:0;
+    display: flex;
 }
 
-.iAm .image-container{
-    max-width: 50%;
+.iAm .image-container, .iAm img {
+    max-width: 60%;
     height: auto;
     margin-bottom: 10px;
 }
@@ -82,7 +83,7 @@ svg {
 
 .footer-content {
     font-family: 'Metal', serif;
-    font-size: 24px;
+    font-size: 12px;
 
 }
 
