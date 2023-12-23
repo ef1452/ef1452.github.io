@@ -21,6 +21,7 @@ function createPaint(parent) {
     var canvas = elt("canvas", {width:500, height: 300});
     var cx = canvas.getContext("2d");
     var toolbar = elt("div", {class: "toolbar"});
+    clearOnTripleClick(canvas, cx);
     for (var name in controls)
         toolbar.appendChild(controls[name](cx));
 
@@ -61,6 +62,20 @@ function trackDrag(onMove, onEnd) {
     addEventListener("mouseup", end);
 }
 
+function clearOnTripleClick(canvas, cx){
+    var clickCount = 0;
+    canvas.addEventListener('mousedown', function (event){
+        clickCount++;
+    if(event.detail === 3){
+        clearCanvas(cx, canvas);
+        clickCount = 0;
+    }
+    });
+}
+
+function clearCanvas(cx, canvas){
+    cx.clearRect(0,0, canvas.width, canvas.height);
+}
 tools.Line = function(event, cx, onEnd){
     cx.lineCap = "round";
 
