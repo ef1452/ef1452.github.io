@@ -94,6 +94,8 @@ svg {
   }
   
   .maintitle {
+    font-family: 'Karla', sans-serif;
+
     font-size: 48px; /* Adjust font size for better readability */
     margin-bottom: 20px;
   }
@@ -120,3 +122,40 @@ svg {
     padding: 10px; /* Add padding for better spacing */
   }
   
+  #scroll-text {
+    text-align: right;
+  
+    /* animation properties */
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 15s linear infinite;
+  }
+  
+  /* for Firefox */
+  @-moz-keyframes my-animation {
+    from { -moz-transform: translateX(-100%); }
+    to { -moz-transform: translateX(50%); }
+  }
+  
+  /* for Chrome */
+  @-webkit-keyframes my-animation {
+    from { -webkit-transform: translateX(-100%); }
+    to { -webkit-transform: translateX(50%); }
+  }
+  
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+    to {
+      -moz-transform: translateX(50%);
+      -webkit-transform: translateX(50%);
+      transform: translateX(50%);
+    }
+  }
