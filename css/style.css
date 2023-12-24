@@ -1,161 +1,221 @@
+/* Your existing styles */
+
 .smooth {
-    transition: all 1s ease-in;
-  }
-  
-.based{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
+  transition: all 1s ease-in;
 }
 
-.based .maintitle{
-    font-family:'Karla', sans-serif;
-    font-size: 48px;
-    margin-bottom: 0px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.based {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.based .maintitle {
+  font-family: 'Karla', sans-serif;
+  font-size: 48px;
+  margin-bottom: 0px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 svg {
-    width: 500px;
-    height: 200px;
-    margin:0px;
-    
-}
-.based .maintitle h1{
-    margin: 0;
-}
-.based .temptime p{
-    font-family: 'Metal', serif;
-    font-size: 24px;
-    margin-top: 0;
+  width: 500px;
+  height: 200px;
+  margin: 0px;
 }
 
+.based .maintitle h1 {
+  margin: 0;
+}
+
+.based .temptime p {
+  font-family: 'Metal', serif;
+  font-size: 24px;
+  margin-top: 0;
+}
 
 .iAm {
-    margin-bottom: 0;
-}  
-
-.iAm .mainbody p{
-    margin-top:0;
-
-    font-family: 'Metal', serif;
-    font-size: 24px;
+  margin-bottom: 0;
 }
 
-
+.iAm .mainbody p {
+  margin-top: 0;
+  font-family: 'Metal', serif;
+  font-size: 24px;
+}
 
 .doYou .maintitle {
-    font-family:'Karla', sans-serif;
-    font-size: 48px;
-    margin-bottom: 0px;
+  font-family: 'Karla', sans-serif;
+  font-size: 48px;
+  margin-bottom: 0px;
 }
 
-.doYou 
-
-.paint-container {
-    position: relative;
+.doYou .paint-container {
+  position: relative;
+  width: 100%;
 }
 
 /* Add this viewport meta tag to your HTML head */
 /* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
 
 .parent {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout on smaller screens */
-    grid-template-rows: auto; /* Let rows adjust dynamically */
-    grid-column-gap: 10px; /* Add some gap between columns */
-    grid-row-gap: 10px; /* Add some gap between rows */
-  }
-  
-  .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
-    width: 100%; /* Make each section take the full width */
-  }
-  
-  .div3 {
-    font-family: 'Karla', sans-serif;
-    font-size: 48px;
-    text-align: center;
-    padding: 20px; /* Add padding for better spacing */
-  }
-  
-  .div4 {
-    font-family: 'Metal', serif;
-    font-size: 24px; /* Adjust font size for better readability */
-    margin-top: 20px; /* Add some top margin */
-  }
-  
-  .currentlyReading {
-    display: flex;
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center;
-  }
-  
-  .maintitle {
-    font-family: 'Karla', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout on smaller screens */
+  grid-template-rows: auto; /* Let rows adjust dynamically */
+  grid-column-gap: 10px; /* Add some gap between columns */
+  grid-row-gap: 10px; /* Add some gap between rows */
+}
 
-    font-size: 48px; /* Adjust font size for better readability */
-    margin-bottom: 20px;
+.div1,
+.div2,
+.div3,
+.div4,
+.div5,
+.div6,
+.div7 {
+  width: 100%; /* Make each section take the full width */
+}
+
+.div3 {
+  font-family: 'Karla', sans-serif;
+  font-size: 48px;
+  text-align: center;
+  padding: 20px; /* Add padding for better spacing */
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+.div4 {
+  font-family: 'Metal', serif;
+  font-size: 24px; /* Adjust font size for better readability */
+  margin-top: 20px; /* Add some top margin */
+}
+
+.currentlyReading {
+  display: flex;
+  flex-direction: column; /* Stack items vertically on smaller screens */
+  align-items: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 48px; /* Adjust font size for better readability */
+  margin-bottom: 20px;
+}
+.currentlyReading .maintitle h2{
+  font-family: 'Karla', sans-serif;
+  font-size: 48px; /* Adjust font size for better readability */
+  margin-bottom: 20px;
+}
+
+.maintitle {
+  font-family: 'Karla', sans-serif;
+  font-size: 48px; /* Adjust font size for better readability */
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row; /* Keep images side by side on smaller screens */
+  gap: 20px; /* Add some gap between images */
+}
+
+.image-container img {
+  mix-blend-mode: screen;
+  max-width: 100%; /* Make images responsive within their container */
+  height: auto;
+  margin-bottom: 0px; /* Adjust margin based on your preference */
+}
+
+
+.paint-message {
+  text-align: center;
+}
+
+.footer-content {
+  font-size: 12px; /* Adjust font size for better readability */
+  text-align: center;
+  padding: 10px; /* Add padding for better spacing */
+}
+
+#scroll-text {
+  text-align: right;
+
+  /* animation properties */
+  -moz-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from {
+    -moz-transform: translateX(-100%);
   }
-  
-  .image-container {
-    display: flex;
-    flex-direction: row; /* Keep images side by side on smaller screens */
-    gap: 20px; /* Add some gap between images */
+  to {
+    -moz-transform: translateX(50%);
   }
-  
-  .image-container img {
-    max-width: 100%; /* Make images responsive within their container */
-    height: auto;
-    margin-bottom: 0px; /* Adjust margin based on your preference */
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from {
+    -webkit-transform: translateX(-100%);
   }
-  
-  .paint-message {
-    text-align: center;
+  to {
+    -webkit-transform: translateX(50%);
   }
-  
-  .footer-content {
-    font-size: 12px; /* Adjust font size for better readability */
-    text-align: center;
-    padding: 10px; /* Add padding for better spacing */
-  }
-  
-  #scroll-text {
-    text-align: right;
-  
-    /* animation properties */
+}
+
+@keyframes my-animation {
+  from {
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    
-    -moz-animation: my-animation 15s linear infinite;
-    -webkit-animation: my-animation 15s linear infinite;
-    animation: my-animation 15s linear infinite;
   }
-  
-  /* for Firefox */
-  @-moz-keyframes my-animation {
-    from { -moz-transform: translateX(-100%); }
-    to { -moz-transform: translateX(50%); }
+  to {
+    -moz-transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
   }
-  
-  /* for Chrome */
-  @-webkit-keyframes my-animation {
-    from { -webkit-transform: translateX(-100%); }
-    to { -webkit-transform: translateX(50%); }
-  }
-  
-  @keyframes my-animation {
-    from {
-      -moz-transform: translateX(-100%);
-      -webkit-transform: translateX(-100%);
-      transform: translateX(-100%);
-    }
-    to {
-      -moz-transform: translateX(50%);
-      -webkit-transform: translateX(50%);
-      transform: translateX(50%);
-    }
-  }
+}
+
+
+/* Add this CSS code to make the form appear vertically */
+#fs-frm {
+  max-width: 200px; /* Adjust the width as needed */
+  margin: auto;
+}
+
+/* Add border directly to form fields */
+#fs-frm-inputs label,
+#fs-frm-inputs input,
+#fs-frm-inputs textarea,
+#fs-frm-inputs #includeImage {
+  display: block;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+  text-align: left;
+  border: 1px transparent; /* Set border properties */
+  padding: 8px; /* Add padding for better visual appearance */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* Align items vertically in the middle */
+}
+
+#includeImage {
+  margin-left: 5px; /* Adjust margin as needed for spacing */
+}
+
+#fs-frm-inputs textarea {
+  resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+#fs-frm-inputs input[type="submit"] {
+  display: block;
+  margin-top: 10px; /* Adjust the margin as needed */
+}

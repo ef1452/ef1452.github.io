@@ -18,13 +18,16 @@
 
 <body>
   <div class="parent">
+
   <div class="div1">
 
   </div>
   <div class="div3">
+    <div class="text-container">
       <h1>I am  : </h1>
     <h2> Currently interested in machine learning and formal verification. </h2>
-    <h2> A STEM, philosophy + Art enjoyer.</h2>
+    <h2> A STEM, Philosophy + Art enjoyer.</h2>
+    </div>
   </div>
     <div class="div4">
       <div id = "scroll-text" class="temptime">
@@ -38,9 +41,7 @@
       </div>
     <div class = "image-container">
     <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1385132472i/17397466.jpg"></img>
-      <p class="image-description">Learning Statistics with R</p>
-    </div>
-    <div class = "image-container">
+      <p class="image-description">An introudction to Statistical Learning</p>
     <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677812131i/26497935.jpg"></img>
     <p class="image-description">Linear and Nonlinear Programming </p>
       </div>
@@ -54,23 +55,48 @@
   </div>
     <div class="paint-container"></div>
     <script> document.addEventListener('DOMContentLoaded', function(){
-      createPaint(document.querySelector('.paint-container'));});</script>
+      var paintCanvas = createPaint(document.querySelector('.paint-container'));
+  
+      // Your form submission logic
+      var includeImageCheckbox = document.getElementById("includeImage");
+      var imageDataInput = document.getElementById("imageData");
+  
+      var fsForm = document.getElementById("fs-frm");
+      fsForm.addEventListener("submit", function(event) {
+          // Check if the checkbox is selected
+          if (includeImageCheckbox.checked) {
+              // Set the canvas data to the hidden input field
+              imageDataInput.value = paintCanvas.toDataURL();
+          } else {
+              // Clear the canvas data if the checkbox is not selected
+              imageDataInput.value = "";
+          }
+      });
+  });</script>
     
     <p>Some of my favorite submissions: </p>
 
-
-<form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xkndwpwn" method="post">
-  <fieldset id="fs-frm-inputs">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
-    <label for="email-address">Email Address</label>
-    <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
-    <label for="message">Message</label>
-    <textarea rows="5" name="message" id="message" placeholder="Type your message..." required=""></textarea>
-    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-  </fieldset>
-  <input type="submit" value="Submit">
-</form>
+    <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xkndwpwn" method="post" enctype="multipart/form-data">
+      <fieldset id="fs-frm-inputs">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
+        <label for="email-address">Email Address</label>
+        <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+        <label for="message">Message</label>
+        <textarea rows="5" name="message" id="message" placeholder="Type your message..." required=""></textarea>
+    
+        <!-- Wrap the checkbox and label in a div for styling -->
+        <div class="checkbox-container">
+          <input type="checkbox" id="includeImage" name="includeImage" value="true">
+          <label for="includeImage">Include Image Data</label>
+        </div>
+    
+        <!-- Add a hidden input field to store the image data -->
+        <input type="hidden" id="imageData" name="imageData">
+        <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+      </fieldset>
+      <input type="submit" value="Submit">
+    </form>
 
 </div>
 

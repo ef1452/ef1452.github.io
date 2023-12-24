@@ -18,7 +18,7 @@ var controls = Object.create(null);
 
 function createPaint(parent) {
     console.log("createPaint executed");
-    var canvas = elt("canvas", {width:500, height: 300});
+    var canvas = elt("canvas", {class: "paint-canvas", width: "732", height: "500"});
     var cx = canvas.getContext("2d");
     var toolbar = elt("div", {class: "toolbar"});
     clearOnTripleClick(canvas, cx);
@@ -27,6 +27,8 @@ function createPaint(parent) {
 
     var panel = elt("div", {class: "picturepanel"}, canvas);
     parent.appendChild(elt("div", null, panel, toolbar));
+
+    return canvas; // Return the reference to the canvas element
 }
 
 var tools = Object.create(null);
@@ -153,22 +155,39 @@ function randomPointInRadius(radius){
     }
 }
 
-tools.Spray = function(event, cx) {
+tools.Spray = function (event, cx) {
     var radius = cx.lineWidth / 2;
     var area = radius * radius * Math.PI;
     var dotsPerTick = Math.ceil(area / 30);
 
     var currentPos = relativePos(event, cx.canvas);
-    var spray = setInterval(function(){
-        for (var i = 0; i < dotsPerTick; i++){
+
+    // Create a gradient that fades out from the center of the spray
+    var gradient = cx.createRadialGradient(
+        currentPos.x,
+        currentPos.y,
+        0,
+        currentPos.x,
+        currentPos.y,
+        radius
+    );
+    gradient.addColorStop(0, cx.fillStyle);
+    gradient.addColorStop(1, 'rgba(0,0,0,0)');
+
+    cx.fillStyle = gradient;
+
+    var spray = setInterval(function () {
+        for (var i = 0; i < dotsPerTick; i++) {
             var offset = randomPointInRadius(radius);
             cx.fillRect(currentPos.x + offset.x, currentPos.y + offset.y, 1, 1);
         }
     }, 25);
-    trackDrag(function(event){
-        currentPos = relativePos(event, cx.canvas);
-    }, function(){
-        clearInterval(spray);
-    });
 
+    trackDrag(function (event) {
+        currentPos = relativePos(event, cx.canvas);
+    }, function () {
+        clearInterval(spray);
+        // Restore the original fill style after the spray is complete
+        cx.fillStyle = gradient;
+    });
 }
