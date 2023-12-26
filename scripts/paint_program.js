@@ -20,6 +20,8 @@ function createPaint(parent) {
     console.log("createPaint executed");
     var canvas = elt("canvas", {class: "paint-canvas", width: "732", height: "500"});
     var cx = canvas.getContext("2d");
+    cx.fillStyle = "white";
+    cx.fillRect(0,0,canvas.width, canvas.height);
     var toolbar = elt("div", {class: "toolbar"});
     clearOnTripleClick(canvas, cx);
     for (var name in controls)
@@ -71,8 +73,12 @@ function clearOnTripleClick(canvas, cx){
     if(event.detail === 3){
         clearCanvas(cx, canvas);
         clickCount = 0;
+        cx.fillStyle = "white";
+        cx.fillRect(0,0,canvas.width, canvas.height);
     }
+    
     });
+
 }
 
 function clearCanvas(cx, canvas){
@@ -97,10 +103,11 @@ tools.Erase = function(event, cx){
         cx.globalCompositeOperation = "source-over";
     });
 }
-
+var currentColor = "black"
 controls.color = function(cx) {
     var input = elt("input", {type: "color"});
-    input.addEventListener("change", function() {
+    input.addEventListener("input", function() {
+        currentColor = input.value;
         cx.fillStyle = input.value;
         cx.strokeStyle = input.value;
     });
@@ -160,34 +167,47 @@ tools.Spray = function (event, cx) {
     var area = radius * radius * Math.PI;
     var dotsPerTick = Math.ceil(area / 30);
 
-    var currentPos = relativePos(event, cx.canvas);
-
     // Create a gradient that fades out from the center of the spray
-    var gradient = cx.createRadialGradient(
-        currentPos.x,
-        currentPos.y,
-        0,
-        currentPos.x,
-        currentPos.y,
-        radius
-    );
+    var gradient = cx.createRadialGradient(0, 0, 0, 0, 0, radius);
+    cx.fillStyle = currentColor;
     gradient.addColorStop(0, cx.fillStyle);
     gradient.addColorStop(1, 'rgba(0,0,0,0)');
 
+    // Set both fillStyle and strokeStyle
     cx.fillStyle = gradient;
+    cx.strokeStyle = gradient;
 
-    var spray = setInterval(function () {
+    function sprayAt(pos) {
         for (var i = 0; i < dotsPerTick; i++) {
             var offset = randomPointInRadius(radius);
-            cx.fillRect(currentPos.x + offset.x, currentPos.y + offset.y, 1, 1);
+            cx.fillRect(pos.x + offset.x, pos.y + offset.y, 1, 1);
         }
-    }, 25);
+    }
 
-    trackDrag(function (event) {
-        currentPos = relativePos(event, cx.canvas);
-    }, function () {
+    function moveSpray(event) {
+        var currentPos = relativePos(event, cx.canvas);
+        cx.save();
+        cx.translate(currentPos.x, currentPos.y);
+        sprayAt({ x: 0, y: 0 });
+        cx.restore();
+    }
+
+    cx.canvas.addEventListener('mousemove', moveSpray);
+
+    // Stop the spray when mouse is released
+    function stopSpray() {
+        cx.canvas.removeEventListener('mousemove', moveSpray);
         clearInterval(spray);
         // Restore the original fill style after the spray is complete
         cx.fillStyle = gradient;
-    });
-}
+        cx.strokeStyle = gradient;  // Add this line
+    }
+
+    cx.canvas.addEventListener('mouseup', stopSpray);
+
+    // Set up continuous spray while mouse is down
+    var spray = setInterval(function () {
+        // Pass the current event to moveSpray
+        moveSpray(event);
+    }, 20000);
+};

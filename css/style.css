@@ -87,8 +87,10 @@ svg {
 
 .div4 {
   font-family: 'Metal', serif;
-  font-size: 24px; /* Adjust font size for better readability */
+  font-size: 36px; /* Adjust font size for better readability */
   margin-top: 20px; /* Add some top margin */
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.6);
+
 }
 
 .currentlyReading {
@@ -132,6 +134,12 @@ svg {
   justify-content: space-between;
 }
 
+.paint-container {
+  position: relative;
+  width: 100%;
+  border: 2px solid #000; /* Set border properties */
+  box-sizing: border-box; /* Include border in the element's total width and height */
+}
 .footer-content {
   font-size: 12px; /* Adjust font size for better readability */
   text-align: center;
@@ -235,6 +243,8 @@ radial-gradient(blue, rgba(255,255,255,.15) 1px, transparent 30px),
 radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
 radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px),
 repeating-linear-gradient(to bottom, transparent, transparent 5px, #069418 5px, #069418 10px),
-repeating-linear-gradient(to right, #617ca2, #617ca2 5px, #069418 5px, #069418 10px);
+repeating-linear-gradient(to right, #617ca2, #617ca2 5px, #069418 5px, #069418 10px),
+repeating-linear-gradient(to right, #617ca2, #617ca2 15px, #617ca2 15px, #617ca2 30px); /* New layer for glowing effect */
+
 background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
 background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;}
